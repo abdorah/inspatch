@@ -1,0 +1,20 @@
+{
+  "folderName": "12/05/1999",
+  "countAll": "606",
+  "countOk": "202",
+  "countKo": "404",
+  "executedSequence": [
+    {
+      "sequenceName": "CAHOS",
+      "reportPath": "path/to/agdal"
+    },
+    {
+      "sequenceName": "DSLY",
+      "reportPath": "path/to/ensias"
+    },
+    {
+      "sequenceName": "IGNEMA",
+      "reportPath": "path/to/kenitra"
+    }
+  ]
+}
