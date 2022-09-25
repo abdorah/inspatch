@@ -15,7 +15,7 @@ public class Report {
     private String countOk;
     @JsonElement
     private String countKo;
-    @JsonList(key = "executedSequence", ofObjects = true)
+    @JsonList(key = "executedSequences", ofObjects = true)
     private Sequence[] sequences;
     
     public Report(String folderName, String countAll, String countOk, String countKo, Sequence[] sequences) {

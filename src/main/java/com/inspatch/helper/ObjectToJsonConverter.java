@@ -13,7 +13,6 @@ import com.inspatch.annotation.JsonSerializable;
 public class ObjectToJsonConverter {
     public String convertToJson(Object object) throws JsonSerializationException {
         try {
-
             checkIfSerializable(object);
             return getJsonString(object);
 
@@ -50,14 +49,26 @@ public class ObjectToJsonConverter {
             field.setAccessible(true);
             StringBuilder buffer = new StringBuilder();
             if (field.isAnnotationPresent(JsonList.class) && !getListingMode(field)) {
-                result.add(buffer.append("\"").append(getKey(field)).append("\": [")
-                        .append(getStringList(field, object)).append("]").toString());
+                result.add(buffer
+                .append("\"")
+                .append(getKey(field))
+                .append("\": [")    
+                .append(getStringList(field, object))
+                .append("]").toString());
             } else if (field.isAnnotationPresent(JsonList.class) && getListingMode(field)) {
-                result.add(buffer.append("\"").append(getKey(field)).append("\": [")
-                        .append(getObjectList(field, object)).append("]").toString());
+                result.add(buffer
+                .append("\"")
+                .append(getKey(field))
+                .append("\": [")
+                .append(getObjectList(field, object))
+                .append("]").toString());
             } else if (field.isAnnotationPresent(JsonElement.class)) {
-                result.add(buffer.append("\"").append(getKey(field)).append("\": \"")
-                        .append(String.valueOf(field.get(object))).append("\"").toString());
+                result.add(buffer
+                .append("\"")
+                .append(getKey(field))
+                .append("\": \"")
+                .append(String.valueOf(field.get(object)))
+                .append("\"").toString());
             }
         }
         return "{" + result.stream().collect(Collectors.joining(",")) + "}";

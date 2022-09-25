@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target({ FIELD })
 public @interface JsonList {
-
     String key() default "";
     boolean ofObjects();
 }
